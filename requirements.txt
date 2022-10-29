@@ -1,3 +1,3 @@
 tqdm>=4.64.1
 mean-average-precision>=2021.4.26.0
-vaik-detection-pb-inference @ git+https://github.com/vaik-info/vaik-detection-pb-inference.git@58a6d004ccbc1cd13da5654eb36ecf5c0838a59c
+vaik-detection-pb-inference @ git+https://github.com/vaik-info/vaik-detection-pb-inference.git@a8db5affee939284fb519307a4b7f017aa18e842

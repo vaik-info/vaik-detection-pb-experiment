@@ -32,7 +32,14 @@ def calc_map(answer_inference_label_path_list, classes):
             inference_xml_dict = {'annotation': {'object': []}}
         else:
             inference_xml_dict = pascal_voc_rw_ex.read_pascal_voc_xml(inference_label_path)
-
+        if 'object' not in answer_xml_dict['annotation'].keys():
+            answer_xml_dict['annotation']['object'] = []
+        if 'object' not in inference_xml_dict['annotation'].keys():
+            inference_xml_dict['annotation']['object'] = []
+        if not isinstance(answer_xml_dict['annotation']['object'], list):
+            answer_xml_dict['annotation']['object'] = [answer_xml_dict['annotation']['object']]
+        if not isinstance(inference_xml_dict['annotation']['object'], list):
+            inference_xml_dict['annotation']['object'] = [inference_xml_dict['annotation']['object']]
         gt_list = []
         for answer_objects_dict in answer_xml_dict['annotation']['object']:
             if answer_objects_dict['name'] in classes:

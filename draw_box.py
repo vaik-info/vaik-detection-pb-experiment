@@ -23,7 +23,8 @@ def draw_box(image_path, label_path, classes, color_list, font_path=os.path.join
     canvas = Image.new("RGBA", org_image.size, (255, 255, 255, 0))
     draw_canvas = ImageDraw.Draw(canvas)
 
-    for objects_dict in xml_dict['annotation']['object']:
+    xml_dict['annotation']['object'] = sorted(xml_dict['annotation']['object'], key=lambda x:x['score'])[::-1]
+    for objects_dict in xml_dict['annotation']['object'][::-1]:
         xmin = float(objects_dict['bndbox']['xmin'])
         xmax = float(objects_dict['bndbox']['xmax'])
         ymin = float(objects_dict['bndbox']['ymin'])

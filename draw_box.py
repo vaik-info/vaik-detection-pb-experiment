@@ -23,13 +23,14 @@ def draw_box(image_path, label_path, classes, color_list, font_path=os.path.join
     canvas = Image.new("RGBA", org_image.size, (255, 255, 255, 0))
     draw_canvas = ImageDraw.Draw(canvas)
 
-    xml_dict['annotation']['object'] = sorted(xml_dict['annotation']['object'], key=lambda x:x['score'])[::-1]
+    if 'score' in xml_dict['annotation'].keys():
+        xml_dict['annotation']['object'] = sorted(xml_dict['annotation']['object'], key=lambda x:x['score'])[::-1]
     for objects_dict in xml_dict['annotation']['object'][::-1]:
         xmin = float(objects_dict['bndbox']['xmin'])
         xmax = float(objects_dict['bndbox']['xmax'])
         ymin = float(objects_dict['bndbox']['ymin'])
         ymax = float(objects_dict['bndbox']['ymax'])
-        score = float(objects_dict['score']) if 'score' in objects_dict.keys() else 1.0
+        score = 1.0 if 'score' not in objects_dict.keys() else float(objects_dict['score'])
         font_size = max(min_font_size, int(0.1 * min(xmax - xmin, ymax - ymin)))
         font = ImageFont.truetype(font_path, font_size)
         if objects_dict['name'] in classes:
@@ -74,7 +75,7 @@ def main(input_image_dir_path, input_label_dir_path, input_classes_path, output_
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='draw box')
     parser.add_argument('--input_image_dir_path', type=str, default='~/.vaik-mnist-detection-dataset/valid')
-    parser.add_argument('--input_label_dir_path', type=str, default='~/.vaik-mnist-detection-dataset/valid_inference')
+    parser.add_argument('--input_label_dir_path', type=str, default='~/.vaik-mnist-detection-dataset/valid')
     parser.add_argument('--input_classes_path', type=str, default='~/.vaik-mnist-detection-dataset/classes.txt')
     parser.add_argument('--output_image_dir_path', type=str,
                         default='~/.vaik-mnist-detection-dataset/valid_inference_draw')

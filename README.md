@@ -4,7 +4,8 @@ Create Pascal VOC xml file by inference model. Calc mAP and draw a box with scor
 
 ## Example
 
-![vaik-detection-pb-inference](https://user-images.githubusercontent.com/116471878/198853671-a868f67f-7105-4ea8-b10b-4362596728c9.png)
+![vaik-detection-pb-experiment](https://user-images.githubusercontent.com/116471878/198854899-a6628136-3124-4401-a8f7-806f0cf6d6dd.png)
+
 
 ## Install
 

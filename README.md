@@ -57,4 +57,14 @@ python calc_map.py --answer_label_dir_path '~/.vaik-mnist-detection-dataset/vali
 
 ### Draw box
 
+```shell
+python draw_box.py --input_image_dir_path '~/.vaik-mnist-detection-dataset/valid' \
+                --input_label_dir_path '~/.vaik-mnist-detection-dataset/valid_inference' \
+                --input_classes_path '~/.vaik-mnist-detection-dataset/classes.txt' \
+                --output_image_dir_path '~/.vaik-mnist-detection-dataset/valid_inference_draw'
+```
+
 #### Output
+
+![valid_000000034 jpg](https://user-images.githubusercontent.com/116471878/198824432-53eb0f31-255b-4c87-9147-f255ea48be9f.png)
+![valid_000000035 jpg](https://user-images.githubusercontent.com/116471878/198824436-cf78def9-eb50-4ec1-a5cd-7c9f26ff05ac.png)

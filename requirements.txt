@@ -1,2 +1,2 @@
 tqdm>=4.64.1
-vaik-detection-pb-inference @ git+https://github.com/vaik-info/vaik-detection-pb-inference.git@8c3199277609c72de3951ee36f7dcd4255104b4f
+vaik-detection-pb-inference @ git+https://github.com/vaik-info/vaik-detection-pb-inference.git@f0996f1f0b8b6a9887860f8496e2ddd0fedcee25

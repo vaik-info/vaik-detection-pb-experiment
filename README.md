@@ -18,7 +18,9 @@ python inference.py --input_saved_model_dir_path '~/.mnist_detection_model/saved
                 --input_image_dir_path '~/.vaik-mnist-detection-dataset/valid' \
                 --output_xml_dir_path '~/.vaik-mnist-detection-dataset/valid_inference' \
                 --resize_input_height 512 \
-                --resize_input_width 512
+                --resize_input_width 512 \
+                --score_th 0.2 \
+                --nms_th 0.5
 ```
 
 #### Output
